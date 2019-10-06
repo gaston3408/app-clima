@@ -5,7 +5,7 @@
       <div class="card text-white bg-info mb-3 col-md-4" style="max-width: 18rem;">
         <div class="card-header">{{weather.name}}</div>
         <div class="card-body">
-          <img  alt=''>
+          <img :src="imgPreUrl + weather.weather[0].icon + '@2x.png'">
           <h2 class="card-text">{{weather.main.temp}}</h2>
           <h4>Min<br>{{weather.main.temp_min}}°</h4>
           <h4>Max<br>{{weather.main.temp_max}}°</h4>
@@ -41,7 +41,7 @@ export default {
 
 data(){
   return{
-    
+    imgPreUrl: "http://openweathermap.org/img/wn/"
   }
 },
 
