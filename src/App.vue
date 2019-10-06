@@ -1,19 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <city :weather='cityWeather'/>
+    
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import city from './components/city.vue'
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    city
+  },
+  data (){
+  return{
+    cityWeather:[],
+    nameCity:'buenos aires',
+
+
   }
+  },
+  methods: {
+    loadWeather: async function() {
+      try{
+      const data = await fetch
+      // se agrega a la url un id personal q te da la pagina al registrarte &appid=
+      // se le agrega la unidad metrica &units=metric si es en celsious
+      (`https://api.openweathermap.org/data/2.5/weather?q=${this.nameCity}&appid=18bfed34a43d9b87ec7e34f824ff105b&units=metric`);
+      this.cityWeather = await data.json();
+      }catch ( error ) {
+        throw error
+        }
+    }
+  },
+  mounted(){
+    this.loadWeather()
+  },
 }
+
 </script>
 
 <style>
