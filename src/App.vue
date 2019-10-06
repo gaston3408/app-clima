@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import city from './components/city.vue'
 export default {
   name: 'app',
@@ -14,24 +13,21 @@ export default {
     city
   },
   data (){
-  return{
-    cityWeather:[],
-    nameCity:'buenos aires',
-
-
-  }
+    return {
+      cityWeather:[],
+      nameCity:'new york',
+    }
   },
   methods: {
     loadWeather: async function() {
-      try{
-      const data = await fetch
-      // se agrega a la url un id personal q te da la pagina al registrarte &appid=
-      // se le agrega la unidad metrica &units=metric si es en celsious
-      (`https://api.openweathermap.org/data/2.5/weather?q=${this.nameCity}&appid=18bfed34a43d9b87ec7e34f824ff105b&units=metric`);
-      this.cityWeather = await data.json();
-      }catch ( error ) {
+      try{     
+        // se agrega a la url un id personal q te da la pagina al registrarte &appid=
+        // se le agrega la unidad metrica &units=metric si es en celsious
+        const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.nameCity}&appid=18bfed34a43d9b87ec7e34f824ff105b&units=metric`);
+        this.cityWeather = await data.json();
+      } catch ( error ) {
         throw error
-        }
+      }
     }
   },
   mounted(){
@@ -49,7 +45,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-font-size: 14px;
+  font-size: 14px;
 
 }
 </style>
