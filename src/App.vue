@@ -1,38 +1,31 @@
 <template>
   <div id="app">
-    <city :weather='cityWeather'/>
+    <nav-bar @search-city='searchCity1' />
+    <city :weather='citySearched'/>
     
   </div>
 </template>
 
 <script>
 import city from './components/city.vue'
+import navBar from './components/navBar.vue'
 export default {
   name: 'app',
   components: {
-    city
+    city,
+    navBar
+
   },
   data (){
     return {
-      cityWeather:[],
-      nameCity:'new york',
+      citySearched:[],
     }
   },
-  methods: {
-    loadWeather: async function() {
-      try{     
-        // se agrega a la url un id personal q te da la pagina al registrarte &appid=
-        // se le agrega la unidad metrica &units=metric si es en celsious
-        const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.nameCity}&appid=18bfed34a43d9b87ec7e34f824ff105b&units=metric`);
-        this.cityWeather = await data.json();
-      } catch ( error ) {
-        throw error
-      }
+  methods:{
+    searchCity1: function(search){
+      this.citySearched = search
     }
-  },
-  mounted(){
-    this.loadWeather()
-  },
+  }
 }
 
 </script>
@@ -44,7 +37,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
   font-size: 14px;
 
 }
