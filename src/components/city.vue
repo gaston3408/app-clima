@@ -1,22 +1,17 @@
 <template>
-  <div id="city">
-    <div>
-    <div class="card text-center container col-row">
-     <div class="card-header ">{{weather.name}} </div>
-     <div class=" mb-4 col-sm-3" style="max-width:15rem;">
-       <img :src="imgPreUrl + weather.weather[0].icon + '@2x.png'">
-     </div>
-     <div class=" mb-4 col-sm-4" style="max-width:15rem;">
-       <h1>{{weather.main.temp}}°C</h1>
-     </div>
-   </div>
-  <div class="card-body">
-    <h5 class="card-title"></h5>
-    <p class="card-text"></p>
-    <a href="#" class="btn btn-primary" >ACTUALIZAR</a>
+  <div id="city" class="container info">
+    <section class="caja">
+      <div class="row">
+      <h1 class="txt col-md-12 ">{{weather.name}}</h1>
+      </div>
+      <hr>
+      <div class=" row">
+      <div class="col-md-4 col-sm-6 "><img :src="imgPreUrl + weather.weather[0].icon + '@2x.png'"></div>
+      <div class="col-md-4 col-sm-6 "><h2 class=" texto">{{weather.main.temp}}°C</h2></div>
+      <div class="col-md-4"><h3></h3></div>
+      </div>
+    </section>     
   </div>
-  </div>
-</div>
 </template>
 
 <script>
@@ -36,3 +31,23 @@ data(){
 
 
 </script>
+<style>
+
+.texto{
+  margin-top: 20px;
+text-align: center;
+font-size: 4em;
+}
+.info{
+  margin-top: 20px;
+}
+.caja{
+  opacity: 0,3;
+  background: rgb(208, 220, 236);
+  border-radius: 20px;
+}
+.txt{
+  text-align: center;
+  color: rgb(122, 94, 94);
+}
+</style>
