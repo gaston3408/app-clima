@@ -1,0 +1,15 @@
+ const url = 'http://localhost:8000/api/temperatures'
+         const settings = {
+             method: 'post',
+             headers:{
+                 'Accept':'application/json',
+                 'Content-Type':'application/json',
+             },
+             body: JSON.stringify(this.cityFavorite)
+         }
+      try {
+        const data = await fetch(url,settings);
+        this.json = await response.json();
+      } catch (error) {
+        throw error;
+      }
