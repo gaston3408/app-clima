@@ -17,10 +17,10 @@
       </a>
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <form class="form-inline my-2 my-lg-0">
+        <form class=" form form-inline my-2 my-lg-0">
           <input
             v-model="city"
-            class="form-control mr-sm-2"
+            class="form-control mr-sm-2 col"
             type="search"
             placeholder="ciudad"
             aria-label="Search"
