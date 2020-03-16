@@ -1,59 +1,68 @@
 <template>
-  <div id="city" class="container info">
-    <section class="caja text-white bg-secondary">
+  <div id="city" class="info">
+    <section class="container caja text-white">
       <div class="row">
-      <h1 class="txt col-md-12 text-white">{{weather.name}}</h1>
+        <div class="col-md-6 col-11">
+          <h2 class="txt text-white">{{weather.name}}</h2>
+        </div>
       </div>
-      <hr>
-      <div class=" row">
-      <div class="col-md-4 col-sm-6 "><img :src="imgPreUrl + weather.weather[0].icon + '@2x.png'"></div>
-      <div class="col-md-4 col-sm-6 "><h2 class=" texto text-white">{{weather.main.temp}}°C</h2></div>
-      <div class="col-md-4"><h3></h3></div>
+      <div class="container">
+        <div class="row col-12 shadow-lg">
+          <div class="col-md-4">
+            <img class :src="imgPreUrl + weather.weather[0].icon + '@2x.png'" />
+          </div>
+          <div class="col-md-8">
+            <div class="row">
+              <h2 class="texto col-12 col-sm-6 text-white">{{weather.main.temp}}°C</h2>
+              <div class="col-12 col-sm-6 temp">
+                <p class="text-p text-danger">Max {{weather.main.temp_max}}°C</p>
+                <p class="text-p text-warning">Min {{weather.main.temp_min}}°C</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <!--<button @click='saveFavorite' class="boton btn btn-primary">Agregar a favoritos</button>-->
     </section>
-    <!--<pre>{{this.cityFavorite}}</pre>-->     
   </div>
 </template>
 
 <script>
 export default {
   name: "city",
-  props: ['weather'],
-data(){
-  return{
-    imgPreUrl: "http://openweathermap.org/img/wn/",
-    cityName:{
-      id:0,
-      name:'',
-    }, 
-  }
-},
-methods: {   },
-
-}
+  props: ["weather"],
+  data() {
+    return {
+      imgPreUrl: "http://openweathermap.org/img/wn/",
+      cityName: {
+        id: 0,
+        name: ""
+      }
+    };
+  },
+  methods: {}
+};
 </script>
 <style>
-
-.boton{
-  height:0,5px,
+.boton {
+  height: 0, 5px;
 }
 
-.texto{
+.texto {
   margin-top: 20px;
-text-align: center;
-font-size: 4em;
-}
-.info{
-  margin-top: 20px;
-}
-.caja{
-  opacity: 0,3;
-}
-.txt{
   text-align: center;
+  font-size: 4em;
 }
-template{
-  background: black;
+.info {
+  margin-left: 40px;
+  margin-top: 20px;
+}
+.temp {
+  margin-top: 20px;
+}
+.text-p {
+  font-size: 1, 5em;
+}
+.txt {
+  text-align: center;
 }
 </style>
