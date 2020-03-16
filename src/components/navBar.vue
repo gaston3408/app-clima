@@ -1,43 +1,32 @@
 <template>
-  <div id="navBar">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarTogglerDemo03"
-        aria-controls="navbarTogglerDemo03"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand">
-        <img class="imagen" src="http://openweathermap.org/img/wn/04d@2x.png" alt />CLIMA
+  <div class=" bg-success">
+    <div class="row">
+      <a class="col-3 col-sm-4">
+        <img class="imagen" src="http://openweathermap.org/img/wn/04d@2x.png" alt />
       </a>
 
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <form class=" form form-inline my-2 my-lg-0">
+      <div class="col-8 col-sm-6">
+        <form class=" form row">
           <input
             v-model="city"
-            class="form-control mr-sm-2 col"
+            class="rounded form-group form-control-md col-8 col-sm-8"
             type="search"
             placeholder="ciudad"
             aria-label="Search"
           />
           <button
-            class="btn btn-outline-primary my-2 my-sm-0"
+            class="btn form-group form-control-md btn-outline-secondary col-4 col-sm-4"
             type="submit"
             @click.prevent="loadWeather"
             @enter.prevent="loadWeather"
           >Search</button>
         </form>
       </div>
-    </nav>
+    </div>
     <span v-if="cityError ==1">
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Error!</strong> Por favor ingresa una ciudad.
-        
+        <strong>Error!</strong>
+        Por favor ingresa una ciudad.
       </div>
     </span>
   </div>
@@ -86,7 +75,11 @@ export default {
 </script>
 <style>
 .imagen {
-  width: 40%;
-  height: 40%;
+  height: 90%;
+}
+.form{
+  margin-top:30px;
+  margin-left:20px;
+  margin-right: 50px;
 }
 </style>
